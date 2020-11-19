@@ -9,9 +9,6 @@ import List from './List.vue'
 
 export default {
   name: 'RightScreen',
-  props: {
-    msg: String
-  },
   components: {
     List
   }

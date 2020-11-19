@@ -1,8 +1,8 @@
 <template>
     <div class="form">
-        <form action="">
-            <input type="text" name="newitem" id="newitem">
-            <Button list="newitem" />
+        <form action="" id="item">
+            <input type="text" name="item" v-model="item">
+            <Button list="item" @click="onClick" />
         </form>
     </div>
 </template>
@@ -14,12 +14,32 @@ export default {
     name: 'LeftScreen',
     components: {
         Button
+    },
+    data() {
+        return {
+            item: null
+        }
+    },
+    methods: {
+        onClick(event) {
+            console.log(event)
+            let listItem = {
+                item: this.item
+            }
+            this.$emit('item-submitted', listItem)
+            this.item = null
+        }
     }
 }
 </script>
-#newitem {
-    width: 100%
-}
+
 <style scoped>
 
+#newitem {
+    width: 80%
+}
+
+.form {
+    justify-content: center
+}
 </style>

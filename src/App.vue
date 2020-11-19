@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="column">
-      <LeftScreen />
+      <LeftScreen @item-submitted="addItem" />
     </div>
     <div class="column">
-      <RightScreen msg="Welcome to Your Vue.js App"/>
+      <RightScreen />
     </div>
   </div>
 </template>
@@ -18,6 +18,17 @@ export default {
   components: {
     RightScreen,
     LeftScreen
+  },
+  data () {
+    return {
+      list: []
+    }
+  },
+  methods: {
+    addItem(listItem) {
+      this.list.push(listItem);
+      console.log(listItem)
+    }
   }
 }
 </script>
