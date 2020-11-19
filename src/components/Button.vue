@@ -12,5 +12,9 @@ export default {
 </script>
 
 <style scoped>
-
+Button {
+    width: 80%;
+    justify-content: center;
+    margin-top: 1rem;
+}
 </style>

@@ -17,7 +17,7 @@ export default {
     }
 }
 </script>
-input, Button {
+#newitem {
     width: 100%
 }
 <style scoped>
