@@ -4,7 +4,7 @@
       <LeftScreen @item-submitted="addItem" />
     </div>
     <div class="column">
-      <RightScreen :shownList=list />
+      <RightScreen :objectList="list" />
     </div>
   </div>
 </template>
@@ -27,7 +27,6 @@ export default {
   methods: {
     addItem(listItem) {
       this.list.push(listItem);
-      console.log(listItem)
     }
   }
 }

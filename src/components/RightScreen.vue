@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <List :shownList={shownList} />
+    <List :objectList="objectList" />
   </div>
 </template>
 
@@ -12,9 +12,12 @@ export default {
   components: {
     List
   },
-  props: {
-    shownList: []
-  }
+    props: {
+        objectList: {
+            type: Array,
+            default: () => []
+        }
+    }
 }
 </script>
 

@@ -1,9 +1,7 @@
 <template>
     <div class="form">
-        <form action="" id="form">
-            <input type="text" name="item" v-model="item">
+            <input type="text" v-model="text">
             <Button list="form" @click="onClick" />
-        </form>
     </div>
 </template>
 
@@ -17,17 +15,13 @@ export default {
     },
     data() {
         return {
-            item: null
+            text: ""
         }
     },
     methods: {
-        onClick(event) {
-            console.log(event)
-            let listItem = {
-                item: this.item
-            }
-            this.$emit('item-submitted', listItem)
-            this.item = null
+        onClick() {
+            this.$emit('item-submitted', this.text)
+            this.text = ""
         }
     }
 }
