@@ -1,12 +1,12 @@
 <template>
-    <button type="submit" form={list} value="Submit" @click="$emit('click')">Submit</button>
+    <button type="submit" form={formName} value="Submit" @click="$emit('click')">Submit</button>
 </template>
 
 <script>
 export default {
     name: 'Button',
     props: {
-        list: String
+        formName: String
     }
 }
 </script>

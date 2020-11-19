@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <List />
+    <List :shownList={shownList} />
   </div>
 </template>
 
@@ -11,6 +11,9 @@ export default {
   name: 'RightScreen',
   components: {
     List
+  },
+  props: {
+    shownList: []
   }
 }
 </script>

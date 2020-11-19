@@ -1,14 +1,19 @@
 <template>
     <div class="list">
         <ul>
-            <li>Teste</li>
+            <li v-for="(item, index) in shownList" :key="index">
+                <p>{{ item }}</p>
+            </li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'List'
+    name: 'List',
+    props: {
+        shownList: Object
+    }
 }
 </script>
 

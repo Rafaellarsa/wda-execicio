@@ -1,8 +1,8 @@
 <template>
     <div class="form">
-        <form action="" id="item">
+        <form action="" id="form">
             <input type="text" name="item" v-model="item">
-            <Button list="item" @click="onClick" />
+            <Button list="form" @click="onClick" />
         </form>
     </div>
 </template>

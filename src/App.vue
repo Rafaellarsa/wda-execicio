@@ -4,7 +4,7 @@
       <LeftScreen @item-submitted="addItem" />
     </div>
     <div class="column">
-      <RightScreen />
+      <RightScreen :shownList=list />
     </div>
   </div>
 </template>
