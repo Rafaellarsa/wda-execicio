@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <List :objectList="objectList" />
+    <List :objectList="objectList" @click="removePerson" />
   </div>
 </template>
 
@@ -12,12 +12,12 @@ export default {
   components: {
     List
   },
-    props: {
-        objectList: {
-            type: Array,
-            default: () => []
-        }
+  props: {
+    objectList: {
+      type: Array,
+      default: () => []
     }
+  }
 }
 </script>
 
