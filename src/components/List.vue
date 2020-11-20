@@ -1,8 +1,9 @@
 <template>
     <div class="list">
         <ul>
-            <li v-for="(item, index) in objectList" :key="index">
-                <p>{{ item }}</p>
+            <li v-for="(person, index) in objectList" :key="index">
+                <img :src="person.profilePicture">
+                <p>{{ person.name }}</p>
             </li>
         </ul>
     </div>
@@ -26,11 +27,26 @@ export default {
 }
 
 ul {
-    list-style-type: square;
-    color: #f67e7d;
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    margin-bottom: 1vw;
+    border: 0.15rem solid #f67e7d;
+    padding: 0.5vw;
+    align-items: center;
 }
 
 p {
     color: #0b032d;
+    margin: 0 1.5vw;
+    font-size: 2rem;
+}
+
+img {
+    width: 5vw;
+    height: 5vw;
 }
 </style>

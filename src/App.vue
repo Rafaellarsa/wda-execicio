@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="column">
-      <LeftScreen @item-submitted="addItem" />
+      <LeftScreen @person-submitted="addPerson" />
     </div>
     <div class="column">
       <RightScreen :objectList="list" />
@@ -25,7 +25,7 @@ export default {
     }
   },
   methods: {
-    addItem(listItem) {
+    addPerson(listItem) {
       this.list.push(listItem);
     }
   }
