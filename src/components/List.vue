@@ -42,8 +42,18 @@ export default {
 <style scoped>
 .list {
     width: 100%;
-    height: 300px;
+    height: 60vh;
     overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+  background-color: #f67e7d;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #621940;
+
 }
 
 ul {
@@ -53,6 +63,7 @@ ul {
 
 li {
     display: flex;
+    width: 90%;
     margin-bottom: 1vw;
     border: 0.15rem solid #f67e7d;
     padding: 0.5vw;
