@@ -29,11 +29,23 @@ export default {
 
 <style scoped>
 
-#newitem {
-    width: 80%
+input {
+    width: 100%;
+    height: 2rem;
+    border-color: #f67e7d;
+    border-style: solid;
+    font-family: 'Roboto';
+}
+
+Button {
+    width: 100%;
+    margin-top: 1vw;
 }
 
 .form {
-    justify-content: center
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5vw;
 }
 </style>

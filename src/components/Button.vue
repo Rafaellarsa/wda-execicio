@@ -12,9 +12,21 @@ export default {
 </script>
 
 <style scoped>
-Button {
-    width: 80%;
-    justify-content: center;
-    margin-top: 1rem;
+button {
+    background-color: #f67e7d;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 700;
+    border: none;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+}
+
+button:hover {
+    background-color: #621940;
+}
+
+button:focus {
+    outline: none;
 }
 </style>

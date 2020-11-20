@@ -24,4 +24,13 @@ export default {
 .list {
     width: 100%
 }
+
+ul {
+    list-style-type: square;
+    color: #f67e7d;
+}
+
+p {
+    color: #0b032d;
+}
 </style>
