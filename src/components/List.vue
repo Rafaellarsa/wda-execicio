@@ -6,9 +6,12 @@
                     <img :src="person.profilePictureURL">
                     <p>{{ person.profileName }}</p>
                 </div>
-                <div class="removal-buttom" @click="removePersonByIndex(arguments[0])">
-                    <div class="first-stroke">
-                        <div class="second-stroke"></div>
+                <div class="icons">
+                    <font-awesome-icon icon="user-edit" :style="{ color: '#621940' }" />
+                    <div class="removal-buttom" @click="removePersonByIndex(index)">
+                        <div class="first-stroke">
+                            <div class="second-stroke"></div>
+                        </div>
                     </div>
                 </div>
             </li>
@@ -30,8 +33,9 @@ export default {
 
         }
     },
-    methods: {
+        methods: {
         removePersonByIndex(index) {
+            console.log(index)
             this.peopleList.splice(index, 1)
         }
     }
@@ -46,18 +50,12 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 1rem;
-  background-color: #f67e7d;
+    width: 1rem;
+    background-color: #f67e7d;
 }
 
 ::-webkit-scrollbar-thumb {
-background-color: #621940;
-
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
+    background-color: #621940;
 }
 
 li {
@@ -86,10 +84,20 @@ img {
     align-items: center;
 }
 
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+font-awesome-icon {
+    background-color: #621940;
+}
+
 .removal-buttom {
   width: 25px;
   height: 25px;
   background-color: #621940;
+  margin-left: 1vw;
 }
 
 .first-stroke {

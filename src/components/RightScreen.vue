@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <List :peopleList="peopleList" @click="removePerson" />
+    <List :peopleList="peopleList" />
   </div>
 </template>
 
