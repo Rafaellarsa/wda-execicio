@@ -1,6 +1,7 @@
 <template>
     <div class="form">
-            <input type="text" v-model="text">
+            <input type="text" placeholder="Nome da pessoa" v-model="profileName">
+            <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL">
             <Button list="form" @click="onClick" />
     </div>
 </template>
@@ -15,13 +16,19 @@ export default {
     },
     data() {
         return {
-            text: ""
+            profileName: "",
+            profilePictureURL: ""
         }
     },
     methods: {
         onClick() {
-            this.$emit('item-submitted', this.text)
-            this.text = ""
+            let person = {
+                profileName: this.profileName,
+                profilePictureURL: this.profilePictureURL
+            }
+            this.$emit('person-submitted', person)
+            this.profileName = ""
+            this.profilePictureURL = ""
         }
     }
 }
@@ -32,14 +39,26 @@ export default {
 input {
     width: 100%;
     height: 2rem;
+    margin-bottom: 1vw;
+
     border-color: #f67e7d;
     border-style: solid;
     font-family: 'Roboto';
+    color: #0b032d;
+}
+
+input::placeholder {
+    color: #0b032d;
+    opacity: 0.5;
+}
+
+input:focus {
+    outline: none;
+    border-color: #621940;
 }
 
 Button {
     width: 100%;
-    margin-top: 1vw;
 }
 
 .form {
