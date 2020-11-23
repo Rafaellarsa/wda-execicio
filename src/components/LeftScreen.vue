@@ -1,7 +1,7 @@
 <template>
     <div class="form">
-            <input type="text" placeholder="Nome da pessoa" v-model="name">
-            <input type="url" placeholder="URL da foto de perfil" v-model="profilePicture">
+            <input type="text" placeholder="Nome da pessoa" v-model="profileName">
+            <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL">
             <Button list="form" @click="onClick" />
     </div>
 </template>
@@ -16,19 +16,19 @@ export default {
     },
     data() {
         return {
-            name: "",
-            profilePicture: ""
+            profileName: "",
+            profilePictureURL: ""
         }
     },
     methods: {
         onClick() {
             let person = {
-                name: this.name,
-                profilePicture: this.profilePicture
+                profileName: this.profileName,
+                profilePictureURL: this.profilePictureURL
             }
             this.$emit('person-submitted', person)
-            this.name = ""
-            this.profilePicture = ""
+            this.profileName = ""
+            this.profilePictureURL = ""
         }
     }
 }

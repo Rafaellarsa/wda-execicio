@@ -4,7 +4,7 @@
       <LeftScreen @person-submitted="addPerson" />
     </div>
     <div class="column">
-      <RightScreen :objectList="list" />
+      <RightScreen :peopleList="list" />
     </div>
   </div>
 </template>

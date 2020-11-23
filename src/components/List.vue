@@ -1,12 +1,12 @@
 <template>
     <div class="list">
         <ul>
-            <li v-for="(person, index) in objectList" :key="index">
+            <li v-for="(person, index) in peopleList" :key="index">
                 <div class="person-info">
-                    <img :src="person.profilePicture">
-                    <p>{{ person.name }}</p>
+                    <img :src="person.profilePictureURL">
+                    <p>{{ person.profileName }}</p>
                 </div>
-                <div id="removal-buttom" @click="removePersonByIndex(arguments[0])">
+                <div class="removal-buttom" @click="removePersonByIndex(arguments[0])">
                     <div class="first-stroke">
                         <div class="second-stroke"></div>
                     </div>
@@ -20,7 +20,7 @@
 export default {
     name: 'List',
     props: {
-        objectList: {
+        peopleList: {
             type: Array,
             default: () => []
         }
@@ -32,8 +32,7 @@ export default {
     },
     methods: {
         removePersonByIndex(index) {
-            console.log("oi")
-            this.objectList.splice(index, 1)
+            this.peopleList.splice(index, 1)
         }
     }
 }
@@ -87,7 +86,7 @@ img {
     align-items: center;
 }
 
-#removal-buttom {
+.removal-buttom {
   width: 25px;
   height: 25px;
   background-color: #621940;
