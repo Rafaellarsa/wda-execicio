@@ -7,7 +7,7 @@
                     <p>{{ person.profileName }}</p>
                 </div>
                 <div class="icons">
-                    <font-awesome-icon icon="user-edit" :style="{ color: '#621940' }" />
+                    <font-awesome-icon icon="user-edit" :style="{ color: '#621940' }" @click="editPersonByIndex(index)" />
                     <div class="removal-buttom" @click="removePersonByIndex(index)">
                         <div class="first-stroke">
                             <div class="second-stroke"></div>
@@ -35,7 +35,6 @@ export default {
     },
         methods: {
         removePersonByIndex(index) {
-            console.log(index)
             this.peopleList.splice(index, 1)
         }
     }
@@ -56,6 +55,10 @@ export default {
 
 ::-webkit-scrollbar-thumb {
     background-color: #621940;
+}
+
+ul {
+    margin-top: 0;
 }
 
 li {

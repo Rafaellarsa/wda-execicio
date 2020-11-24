@@ -6,14 +6,10 @@
 
         <div id="addPersonModal" class="add-person-modal">
             <div class="add-person-modal-content">
-<!-- Muda o nome dessa classe -->
-                <span class="close" @click="close">&times;</span>
+                <span class="close-modal" @click="close">&times;</span>
                 <LeftScreen @person-submitted="addPerson" />
             </div>
         </div>
-
-
-
 
         <List :peopleList="peopleList" />
     </div>
@@ -35,7 +31,8 @@ export default {
     },
     data() {
         return {
-            peopleList: []
+        peopleList: [{profileName: "Joice", profilePictureURL: "https://avatars2.githubusercontent.com/u/23100392?s=460&u=39ef99a6a5bee8145036e5142cb927e8faf60c1c&v=4"},
+                    {profileName: "Samir", profilePictureURL: "https://avatars2.githubusercontent.com/u/3485190?s=460&u=01b4f7808a7dbfccf0748d311067cb19e8bfa11b&v=4"}]
         }
     },
     methods: {
@@ -73,6 +70,10 @@ Button {
     margin: 2vw;
 }
 
+.list {
+    margin: 2vw;
+    margin-top: 0;
+}
 
 
 
@@ -106,7 +107,7 @@ Button {
 }
 
 /* The Close Button */
-.close {
+.close-modal {
   color: #aaa;
   float: right;
   font-size: 28px;
@@ -118,10 +119,5 @@ Button {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-.list {
-    margin: 2vw;
-    margin-top: 0;
 }
 </style>

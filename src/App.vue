@@ -1,24 +1,32 @@
 <template>
     <div id="app">
         <div class="menu">
-            <ul>
-                <li class="menu-items">Versão 1</li>
-                <li class="menu-items">Versão 2</li>
-            </ul>
+            <button class="menu-items" @click="pageVersion='firstVersion'">Versão 1</button>
+            <button class="menu-items" @click="pageVersion='secondVersion'">Versão 2</button>
         </div>
-        <div class="main">
-            <Main />
+        <div class="main" v-if="pageVersion === 'firstVersion'">
+            <FirstVersion />
+        </div>
+        <div class="main" v-if="pageVersion === 'secondVersion'">
+            <SecondVersion />
         </div>
     </div>
 </template>
 
 <script>
-import Main from './FirstVersion.vue'
+import FirstVersion from './FirstVersion.vue'
+import SecondVersion from './SecondVersion.vue'
 
 export default {
     name: 'App',
     components: {
-        Main
+        FirstVersion,
+        SecondVersion
+    },
+    data() {
+        return {
+            pageVersion: 'firstVersion'
+        }
     }
 }
 </script>
@@ -48,7 +56,26 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.menu-items {
+    color: #f67e7d;
+    background-color: white;
+    border: none;
+    margin: 0;
+    width: 100%;
     font-size: 1.5rem;
+    font-family: 'Roboto';
+    font-weight: 700;
+}
+
+.menu-items:hover {
+    color: white;
+    background-color: #f67e7d;
+}
+
+.menu-items:focus {
+    outline: none;
 }
 
 .main {
@@ -56,25 +83,5 @@ body {
     margin: 4vw;
     width: 70vw;
     height: 82vh;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-block-start: 0;
-    margin-top:2vw;
-    width: 100%;
-    text-align: center;
-}
-
-.menu-items {
-    margin-bottom: 1vw;
-    color: #f67e7d;
-}
-
-.menu-items:hover {
-    color: white;
-    background-color: #f67e7d;
-    
 }
 </style>
