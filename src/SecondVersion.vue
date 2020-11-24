@@ -4,13 +4,7 @@
             <Button @click="onClick" />
         </div>
 
-        <div id="addPersonModal" class="add-person-modal">
-            <div class="add-person-modal-content">
-                <span class="close-modal" @click="close">&times;</span>
-                <LeftScreen @person-submitted="addPerson" />
-            </div>
-        </div>
-
+        <AddPersonModal @close="close" @person-submitted="addPerson" />
         <List :peopleList="peopleList" />
     </div>
 </template>
@@ -18,16 +12,17 @@
 <script>
 import List from './components/List'
 import Button from './components/Button'
-import LeftScreen from './components/LeftScreen'
+import AddPersonModal from './components/AddPersonModal'
 
 var addPersonModal;
+
 
 export default {
     name: 'SecondVersion',
     components: {
         List,
         Button,
-        LeftScreen
+        AddPersonModal
     },
     data() {
         return {
@@ -44,6 +39,7 @@ export default {
         },
         addPerson(listItem) {
             this.peopleList.push(listItem);
+            addPersonModal.style.display = "none";
         }
     },
     mounted: function() {

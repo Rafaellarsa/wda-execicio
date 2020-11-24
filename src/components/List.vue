@@ -7,21 +7,32 @@
                     <p>{{ person.profileName }}</p>
                 </div>
                 <div class="icons">
-                    <font-awesome-icon icon="user-edit" :style="{ color: '#621940' }" @click="editPersonByIndex(index)" />
+                    <font-awesome-icon icon="user-edit" :style="{ color: '#621940' }" @click="onClick" />
+
                     <div class="removal-buttom" @click="removePersonByIndex(index)">
                         <div class="first-stroke">
                             <div class="second-stroke"></div>
                         </div>
                     </div>
                 </div>
+
+            <EditPersonModal @close='close' />
             </li>
         </ul>
+
     </div>
 </template>
 
 <script>
+import EditPersonModal from './EditPersonModal'
+
+var editPersonModal;
+
 export default {
     name: 'List',
+    components: {
+        EditPersonModal
+    },
     props: {
         peopleList: {
             type: Array,
@@ -33,10 +44,23 @@ export default {
 
         }
     },
-        methods: {
+    methods: {
         removePersonByIndex(index) {
             this.peopleList.splice(index, 1)
+        },
+        editPersonByIndex(newPerson, index) {
+            this.peopleList[index].profileName = newPerson.profileName;
+            this.peopleList[index].profilePictureURL = newPerson.profilePictureURL
+        },
+        onClick() {
+            editPersonModal.style.display = "block";
+        },
+        close() {
+            editPersonModal.style.display = "none";
         }
+    },
+    mounted: function() {
+        editPersonModal = document.getElementById("editPersonModal");
     }
 }
 </script>
@@ -119,4 +143,5 @@ font-awesome-icon {
   transform: rotate(90deg);
   Z-index: 2;
 }
+
 </style>
