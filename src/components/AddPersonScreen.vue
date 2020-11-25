@@ -10,7 +10,7 @@
 import Button from './Button.vue'
 
 export default {
-    name: 'LeftScreen',
+    name: 'AddPersonScreen',
     components: {
         Button
     },

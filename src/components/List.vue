@@ -7,19 +7,17 @@
                     <p>{{ person.profileName }}</p>
                 </div>
                 <div class="icons">
-                    <font-awesome-icon icon="user-edit" :style="{ color: '#621940' }" @click="onClick" />
+                    <font-awesome-icon icon="user-edit" :style="{ color: '#621940' }" @click="onClickEdit(person, index)" />
 
                     <div class="removal-buttom" @click="removePersonByIndex(index)">
-                        <div class="first-stroke">
-                            <div class="second-stroke"></div>
-                        </div>
+                        <div class="first-stroke"><div class="second-stroke"></div></div>
                     </div>
                 </div>
 
-            <EditPersonModal @close='close' />
             </li>
         </ul>
 
+        <EditPersonModal @close="close" @person-submitted="editPersonByIndex(selectedPerson, selectedIndex)" v-model="selectedPerson" />
     </div>
 </template>
 
@@ -41,18 +39,23 @@ export default {
     },
     data() {
         return {
-
+            person: Object,
+            selectedPerson: Object,
+            selectedIndex: Number
         }
     },
     methods: {
         removePersonByIndex(index) {
-            this.peopleList.splice(index, 1)
+            this.peopleList.splice(index, 1);
         },
         editPersonByIndex(newPerson, index) {
             this.peopleList[index].profileName = newPerson.profileName;
-            this.peopleList[index].profilePictureURL = newPerson.profilePictureURL
+            this.peopleList[index].profilePictureURL = newPerson.profilePictureURL;
+            editPersonModal.style.display = "none";
         },
-        onClick() {
+        onClickEdit(person, index) {
+            this.selectedPerson = person;
+            this.selectedIndex = index;
             editPersonModal.style.display = "block";
         },
         close() {

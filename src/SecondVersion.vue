@@ -16,7 +16,6 @@ import AddPersonModal from './components/AddPersonModal'
 
 var addPersonModal;
 
-
 export default {
     name: 'SecondVersion',
     components: {
