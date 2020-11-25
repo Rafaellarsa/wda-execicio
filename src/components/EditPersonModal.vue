@@ -1,18 +1,18 @@
 <template>
-    <div id="editPersonModal" class="edit-person-modal">
+    <div ref="editPersonModal" class="edit-person-modal">
         <div class="edit-person-modal-content">
             <span class="close-modal" @click="$emit('close')">&times;</span>
             <div class="form">
                 <input type="text" placeholder="Nome da pessoa" v-model="profileName" />
                 <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL" />
-                <Button class="edit-button" list="form" @click="onClick" />
+                <Button class="edit-button" list="form" @click="onClick" buttonMessage="Editar" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Button from './Button'
+import Button from './Button';
 
 export default {
     name: 'EditPersonModal',
@@ -25,12 +25,16 @@ export default {
                 profileName: "",
                 profilePictureURL: ""
             }
+        },
+        visible: {
+            default: false
         }
     },
     data() {
         return {
             profileName: "",
-            profilePictureURL: ""
+            profilePictureURL: "",
+            editPersonModal: null
         }
     },
     watch: {
@@ -38,6 +42,17 @@ export default {
             this.profileName = newValue.profileName;
             this.profilePictureURL = newValue.profilePictureURL;
         },
+        visible(newVisible) {
+            console.log(newVisible);
+            if (newVisible) {
+                this.editPersonModal.style.visibility = "visible";
+            } else {
+                this.editPersonModal.style.visibility = "hidden";
+            }
+        }
+    },
+    mounted() {
+        this.editPersonModal = this.$refs.editPersonModal;
     },
     methods: {
         updateParameters() {
@@ -50,7 +65,7 @@ export default {
                 profilePictureURL: this.profilePictureURL
             }
             this.$emit('input', person)
-            this.$emit('person-submitted')
+            this.$emit('click-confirm')
             this.$emit('close')
             this.profileName = ""
             this.profilePictureURL = ""
@@ -93,32 +108,30 @@ input:focus {
 }
 
 
-/* The Modal (background) */
 .edit-person-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  /* display: none; */
+  visibility: hidden;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
 .edit-person-modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border: none;
+  width: 80%;
 }
 
-/* The Close Button */
 .close-modal {
-  color: #aaa;
+  color: #621940;
   float: right;
   font-size: 28px;
   font-weight: bold;

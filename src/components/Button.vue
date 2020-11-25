@@ -1,12 +1,12 @@
 <template>
-    <button @click="$emit('click')">Adicionar</button>
+    <button @click="$emit('click')">{{ buttonMessage }}</button>
 </template>
 
 <script>
 export default {
     name: 'Button',
     props: {
-        formName: String
+        buttonMessage: String
     }
 }
 </script>

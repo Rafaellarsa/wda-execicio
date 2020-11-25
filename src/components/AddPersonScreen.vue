@@ -2,7 +2,7 @@
     <div class="form">
             <input type="text" placeholder="Nome da pessoa" v-model="profileName">
             <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL">
-            <Button list="form" @click="onClick" />
+            <Button list="form" @click="onClick" buttonMessage="Adicionar" />
     </div>
 </template>
 

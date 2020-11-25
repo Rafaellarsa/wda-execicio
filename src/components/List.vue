@@ -17,14 +17,13 @@
             </li>
         </ul>
 
-        <EditPersonModal @close="close" @person-submitted="editPersonByIndex(selectedPerson, selectedIndex)" v-model="selectedPerson" />
+        <EditPersonModal v-model="selectedPerson" :visible="isEditPersonVisible" @click-confirm="editPersonByIndex(selectedPerson, selectedIndex)" @close="closeEditPerson" />
     </div>
 </template>
 
 <script>
 import EditPersonModal from './EditPersonModal'
 
-var editPersonModal;
 
 export default {
     name: 'List',
@@ -41,7 +40,8 @@ export default {
         return {
             person: Object,
             selectedPerson: Object,
-            selectedIndex: Number
+            selectedIndex: Number,
+            isEditPersonVisible: Boolean
         }
     },
     methods: {
@@ -51,20 +51,20 @@ export default {
         editPersonByIndex(newPerson, index) {
             this.peopleList[index].profileName = newPerson.profileName;
             this.peopleList[index].profilePictureURL = newPerson.profilePictureURL;
-            editPersonModal.style.display = "none";
+            this.isEditPersonVisible = false;
         },
         onClickEdit(person, index) {
             this.selectedPerson = person;
             this.selectedIndex = index;
-            editPersonModal.style.display = "block";
+            this.isEditPersonVisible = true;
         },
-        close() {
-            editPersonModal.style.display = "none";
+        closeEditPerson() {
+            this.isEditPersonVisible = false;
         }
     },
-    mounted: function() {
-        editPersonModal = document.getElementById("editPersonModal");
-    }
+    // mounted: function() {
+    //     editPersonModal = document.getElementById("editPersonModal");
+    // }
 }
 </script>
 
