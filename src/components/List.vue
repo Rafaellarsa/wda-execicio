@@ -17,13 +17,13 @@
             </li>
         </ul>
 
-        <EditPersonModal v-model="selectedPerson" :visible="isEditPersonVisible" @click-confirm="editPersonByIndex(selectedPerson, selectedIndex)" @close="closeEditPerson" />
+        <EditPersonModal v-model="selectedPerson" :visible="isEditPersonVisible"
+                         @click-confirm="editPersonByIndex(selectedPerson, selectedIndex)" @close="closeEditPerson" />
     </div>
 </template>
 
 <script>
 import EditPersonModal from './EditPersonModal'
-
 
 export default {
     name: 'List',
@@ -61,10 +61,7 @@ export default {
         closeEditPerson() {
             this.isEditPersonVisible = false;
         }
-    },
-    // mounted: function() {
-    //     editPersonModal = document.getElementById("editPersonModal");
-    // }
+    }
 }
 </script>
 
@@ -146,5 +143,4 @@ font-awesome-icon {
   transform: rotate(90deg);
   Z-index: 2;
 }
-
 </style>

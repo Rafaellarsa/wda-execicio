@@ -5,7 +5,7 @@
             <div class="form">
                 <input type="text" placeholder="Nome da pessoa" v-model="profileName" />
                 <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL" />
-                <Button class="edit-button" list="form" @click="onClick" buttonMessage="Editar" />
+                <Button class="edit-button" @click="onClick" buttonMessage="Editar" />
             </div>
         </div>
     </div>
@@ -43,7 +43,6 @@ export default {
             this.profilePictureURL = newValue.profilePictureURL;
         },
         visible(newVisible) {
-            console.log(newVisible);
             if (newVisible) {
                 this.editPersonModal.style.visibility = "visible";
             } else {
@@ -55,20 +54,15 @@ export default {
         this.editPersonModal = this.$refs.editPersonModal;
     },
     methods: {
-        updateParameters() {
-            this.profileName = this.value.profileName;
-            this.profilePictureURL = this.value.profilePictureURL;
-        },
         onClick() {
             let person = {
                 profileName: this.profileName,
                 profilePictureURL: this.profilePictureURL
-            }
-            this.$emit('input', person)
-            this.$emit('click-confirm')
-            this.$emit('close')
-            this.profileName = ""
-            this.profilePictureURL = ""
+            };
+            this.$emit('input', person);
+            this.$emit('click-confirm');
+            this.profileName = "";
+            this.profilePictureURL = "";
         }
     }
 }
@@ -79,7 +73,6 @@ input {
     width: 100%;
     height: 2rem;
     margin-bottom: 1vw;
-
     border-color: #f67e7d;
     border-style: solid;
     font-family: 'Roboto';
@@ -109,7 +102,6 @@ input:focus {
 
 
 .edit-person-modal {
-  /* display: none; */
   visibility: hidden;
   position: fixed;
   z-index: 1;
