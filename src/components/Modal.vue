@@ -1,6 +1,6 @@
 <template>
-    <div :style="{ display: addPersonModalVisibility }" class="add-person-modal">
-        <div class="add-person-modal-content">
+    <div :style="{ display: modalVisibility }" class="modal">
+        <div class="modal-content">
             <span class="close-modal" @click="$emit('close')">&times;</span>
             <div class="form">
                 <input type="text" placeholder="Nome da pessoa" v-model="profileName" />
@@ -15,15 +15,14 @@
 import Button from './Button';
 
 export default {
-    name: 'AddPersonModal',
+    name: 'Modal',
     components: {
         Button
     },
     data() {
         return {
             profileName: "",
-            profilePictureURL: "",
-            addPersonModal: null
+            profilePictureURL: ""
         }
     },
     props: {
@@ -43,7 +42,7 @@ export default {
         }
     },
     computed: {
-        addPersonModalVisibility: function() {
+        modalVisibility: function() {
             if (this.visible) {
                  return "block";
             } else {
@@ -67,7 +66,7 @@ export default {
 </script>
 
 <style>
-.add-person-modal {
+.modal {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -79,7 +78,7 @@ export default {
   background-color: rgba(0,0,0,0.4);
 }
 
-.add-person-modal-content {
+.modal-content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;

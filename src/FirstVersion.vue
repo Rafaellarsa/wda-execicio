@@ -1,7 +1,7 @@
 <template>
   <div class="first-version">
     <div class="column">
-      <AddPersonScreen buttonMessage="Adicionar" @person-submitted="addPerson" />
+      <LeftScreen buttonMessage="Adicionar" @person-submitted="addPerson" />
     </div>
     <div class="column">
       <RightScreen :peopleList="peopleList" />
@@ -11,13 +11,13 @@
 
 <script>
 import RightScreen from './components/RightScreen.vue'
-import AddPersonScreen from './components/AddPersonScreen.vue'
+import LeftScreen from './components/LeftScreen.vue'
 
 export default {
   name: 'FirstVersion',
   components: {
     RightScreen,
-    AddPersonScreen
+    LeftScreen
   },
   data () {
     return {

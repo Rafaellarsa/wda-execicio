@@ -1,16 +1,16 @@
 <template>
   <div class="right">
-    <List :peopleList="peopleList" />
+    <PeopleList :peopleList="peopleList" />
   </div>
 </template>
 
 <script>
-import List from './List.vue'
+import PeopleList from './PeopleList.vue'
 
 export default {
   name: 'RightScreen',
   components: {
-    List
+    PeopleList
   },
   props: {
     peopleList: {

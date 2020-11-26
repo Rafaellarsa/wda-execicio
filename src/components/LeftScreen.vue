@@ -2,7 +2,7 @@
     <div class="form">
             <input type="text" placeholder="Nome da pessoa" v-model="profileName">
             <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL">
-            <Button @click="onClick" :buttonMessage="buttonMessage" />
+            <Button @click="onClickAdd" :buttonMessage="buttonMessage" />
     </div>
 </template>
 
@@ -10,7 +10,7 @@
 import Button from './Button.vue'
 
 export default {
-    name: 'AddPersonScreen',
+    name: 'LeftScreen',
     components: {
         Button
     },
@@ -24,7 +24,7 @@ export default {
         }
     },
     methods: {
-        onClick() {
+        onClickAdd() {
             let person = {
                 profileName: this.profileName,
                 profilePictureURL: this.profilePictureURL
@@ -42,7 +42,6 @@ input {
     width: 100%;
     height: 2rem;
     margin-bottom: 1vw;
-
     border-color: #f67e7d;
     border-style: solid;
     font-family: 'Roboto';

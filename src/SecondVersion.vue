@@ -5,19 +5,19 @@
         </div>
 
         <AddPersonModal :visible="isAddPersonModalVisible" @close="closeAddPerson" @person-submitted="addPerson" buttonMessage="Adicionar" />
-        <List :peopleList="peopleList" />
+        <PeopleList :peopleList="peopleList" />
     </div>
 </template>
 
 <script>
-import List from './components/List'
+import PeopleList from './components/PeopleList'
 import Button from './components/Button'
-import AddPersonModal from './components/AddPersonModal'
+import AddPersonModal from './components/Modal'
 
 export default {
     name: 'SecondVersion',
     components: {
-        List,
+        PeopleList,
         Button,
         AddPersonModal
     },

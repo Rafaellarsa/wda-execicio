@@ -1,5 +1,5 @@
 <template>
-    <div class="list">
+    <div class="people-list">
         <ul>
             <li v-for="(person, index) in peopleList" :key="index">
                 <div class="person-info">
@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import EditPersonModal from './AddPersonModal'
+import EditPersonModal from './Modal'
 
 export default {
-    name: 'List',
+    name: 'PeopleList',
     components: {
         EditPersonModal
     },
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.list {
+.people-list {
     width: 100%;
     height: 60vh;
     overflow-y: auto;
