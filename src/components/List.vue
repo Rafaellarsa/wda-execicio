@@ -17,13 +17,13 @@
             </li>
         </ul>
 
-        <EditPersonModal v-model="selectedPerson" :visible="isEditPersonVisible"
-                         @click-confirm="editPersonByIndex(selectedPerson, selectedIndex)" @close="closeEditPerson" />
+        <EditPersonModal v-model="selectedPerson" :visible="isEditPersonVisible" buttonMessage="Editar"
+                         @person-submitted="editPersonByIndex(selectedPerson, selectedIndex)" @close="closeEditPerson" />
     </div>
 </template>
 
 <script>
-import EditPersonModal from './EditPersonModal'
+import EditPersonModal from './AddPersonModal'
 
 export default {
     name: 'List',
@@ -41,7 +41,7 @@ export default {
             person: Object,
             selectedPerson: Object,
             selectedIndex: Number,
-            isEditPersonVisible: Boolean
+            isEditPersonVisible: false
         }
     },
     methods: {

@@ -1,27 +1,46 @@
 <template>
-    <div ref="addPersonModal" :style="{ display: addPersonModalVisibility }" class="add-person-modal">
+    <div :style="{ display: addPersonModalVisibility }" class="add-person-modal">
         <div class="add-person-modal-content">
             <span class="close-modal" @click="$emit('close')">&times;</span>
-            <AddPersonScreen buttonMessage="Adicionar" @person-submitted="person = arguments[0], $emit('person-submitted', person)" />
+            <div class="form">
+                <input type="text" placeholder="Nome da pessoa" v-model="profileName" />
+                <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL" />
+            <Button class="edit-button" @click="onClick" :buttonMessage="buttonMessage" />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import AddPersonScreen from './AddPersonScreen';
+import Button from './Button';
 
 export default {
     name: 'AddPersonModal',
     components: {
-        AddPersonScreen
+        Button
     },
     data() {
         return {
+            profileName: "",
+            profilePictureURL: "",
             addPersonModal: null
         }
     },
     props: {
-        visible: Boolean
+        visible: Boolean,
+        buttonMessage: String,
+        value: {
+            default: {
+                profileName: "",
+                profilePictureURL: ""
+            }
+        }
+    },
+    watch: {
+        value(newValue) {
+            this.profileName = newValue.profileName;
+            this.profilePictureURL = newValue.profilePictureURL;
+        }
     },
     computed: {
         addPersonModalVisibility: function() {
@@ -30,6 +49,18 @@ export default {
             } else {
                 return "none";
             }
+        }
+    },
+    methods: {
+        onClick() {
+            let person = {
+                profileName: this.profileName,
+                profilePictureURL: this.profilePictureURL
+            };
+            this.$emit('input', person);
+            this.$emit('person-submitted', person);
+            this.profileName = "";
+            this.profilePictureURL = "";
         }
     }
 }
@@ -68,5 +99,36 @@ export default {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+input {
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 1vw;
+    border-color: #f67e7d;
+    border-style: solid;
+    font-family: 'Roboto';
+    color: #0b032d;
+}
+
+input::placeholder {
+    color: #0b032d;
+    opacity: 0.5;
+}
+
+input:focus {
+    outline: none;
+    border-color: #621940;
+}
+
+.edit-button {
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5vw;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
     <div id="app">
         <div class="menu">
-            <button class="menu-items" @click="pageVersion='firstVersion'">Versão 1</button>
-            <button class="menu-items" @click="pageVersion='secondVersion'">Versão 2</button>
+            <button class="menu-items" @click="goToFirstVersion()">Versão 1</button>
+            <button class="menu-items" @click="goToSecondVersion()">Versão 2</button>
         </div>
-        <div class="main" v-if="pageVersion === 'firstVersion'">
+        <div class="main" v-if="isFirstVersion()">
             <FirstVersion />
         </div>
-        <div class="main" v-if="pageVersion === 'secondVersion'">
+        <div class="main" v-if="isSecondVersion()">
             <SecondVersion />
         </div>
     </div>
@@ -17,6 +17,11 @@
 import FirstVersion from './FirstVersion.vue';
 import SecondVersion from './SecondVersion.vue';
 
+const ScreenMode = {
+    FIRST_VERSION: "firstVersion",
+    SECOND_VERSION: "secondVersion"
+};
+
 export default {
     name: 'App',
     components: {
@@ -25,9 +30,24 @@ export default {
     },
     data() {
         return {
-            pageVersion: 'firstVersion'
+            pageVersion: ScreenMode.FIRST_VERSION
+        }
+    },
+    methods: {
+        goToFirstVersion() {
+            this.pageVersion = ScreenMode.FIRST_VERSION;
+        },
+        goToSecondVersion() {
+            this.pageVersion = ScreenMode.SECOND_VERSION;
+        },
+        isFirstVersion() {
+            return (this.pageVersion == ScreenMode.FIRST_VERSION);
+        },
+        isSecondVersion() {
+            return (this.pageVersion == ScreenMode.SECOND_VERSION);
         }
     }
+
 }
 </script>
 

@@ -4,7 +4,7 @@
             <Button @click="onClickAdd" buttonMessage="Adicionar" />
         </div>
 
-        <AddPersonModal :visible="isAddPersonModalVisible" @close="closeAddPerson" @person-submitted="addPerson" />
+        <AddPersonModal :visible="isAddPersonModalVisible" @close="closeAddPerson" @person-submitted="addPerson" buttonMessage="Adicionar" />
         <List :peopleList="peopleList" />
     </div>
 </template>
