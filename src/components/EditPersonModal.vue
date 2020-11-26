@@ -1,5 +1,5 @@
 <template>
-    <div :style="{ display: modalVisibility }" class="modal">
+    <div :style="{ display: computedDisplayStyle }" class="modal">
         <div class="modal-content">
             <span class="close-modal" @click="$emit('close')">&times;</span>
             <div class="form">
@@ -42,7 +42,7 @@ export default {
         }
     },
     computed: {
-        modalVisibility: function() {
+        computedDisplayStyle: function() {
             if (this.visible) {
                  return "block";
             } else {
