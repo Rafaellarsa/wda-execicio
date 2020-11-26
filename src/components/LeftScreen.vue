@@ -2,17 +2,17 @@
     <div class="form">
             <input type="text" placeholder="Nome da pessoa" v-model="profileName">
             <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL">
-            <Button @click="onClickAdd" :buttonMessage="buttonMessage" />
+            <default-button @click="onClickAdd" :buttonMessage="buttonMessage" />
     </div>
 </template>
 
 <script>
-import Button from './Button.vue'
+import DefaultButton from './DefaultButton.vue'
 
 export default {
     name: 'LeftScreen',
     components: {
-        Button
+        "default-button": DefaultButton
     },
     props: {
         buttonMessage: String

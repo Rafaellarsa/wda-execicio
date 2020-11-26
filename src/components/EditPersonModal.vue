@@ -5,19 +5,19 @@
             <div class="form">
                 <input type="text" placeholder="Nome da pessoa" v-model="profileName" />
                 <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL" />
-            <Button class="edit-button" @click="onClick" :buttonMessage="buttonMessage" />
+                <default-button class="edit-button" @click="onClick" :buttonMessage="buttonMessage" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Button from './Button';
+import DefaultButton from './DefaultButton';
 
 export default {
-    name: 'Modal',
+    name: 'EditPersonModal',
     components: {
-        Button
+        "default-button": DefaultButton
     },
     data() {
         return {

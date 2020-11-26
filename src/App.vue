@@ -5,10 +5,10 @@
             <button class="menu-items" @click="goToSecondVersion()">Versão 2</button>
         </div>
         <div class="main" v-if="isFirstVersion()">
-            <FirstVersion />
+            <first-version />
         </div>
         <div class="main" v-if="isSecondVersion()">
-            <SecondVersion />
+            <second-version />
         </div>
     </div>
 </template>
@@ -25,8 +25,8 @@ const ScreenMode = {
 export default {
     name: 'App',
     components: {
-        FirstVersion,
-        SecondVersion
+        "first-version": FirstVersion,
+        "second-version": SecondVersion
     },
     data() {
         return {

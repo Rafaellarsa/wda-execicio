@@ -17,18 +17,18 @@
             </li>
         </ul>
 
-        <EditPersonModal v-model="selectedPerson" :visible="isEditPersonVisible" buttonMessage="Editar"
+        <edit-person-modal v-model="selectedPerson" :visible="isEditPersonVisible" buttonMessage="Editar"
                          @person-submitted="editPersonByIndex(selectedPerson, selectedIndex)" @close="closeEditPerson" />
     </div>
 </template>
 
 <script>
-import EditPersonModal from './Modal'
+import EditPersonModal from './EditPersonModal'
 
 export default {
     name: 'PeopleList',
     components: {
-        EditPersonModal
+        "edit-person-modal": EditPersonModal
     },
     props: {
         peopleList: {

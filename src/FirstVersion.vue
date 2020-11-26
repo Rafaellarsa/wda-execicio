@@ -1,10 +1,10 @@
 <template>
   <div class="first-version">
     <div class="column">
-      <LeftScreen buttonMessage="Adicionar" @person-submitted="addPerson" />
+      <left-screen buttonMessage="Adicionar" @person-submitted="addPerson" />
     </div>
     <div class="column">
-      <RightScreen :peopleList="peopleList" />
+      <right-screen :peopleList="peopleList" />
     </div>
   </div>
 </template>
@@ -16,8 +16,8 @@ import LeftScreen from './components/LeftScreen.vue'
 export default {
   name: 'FirstVersion',
   components: {
-    RightScreen,
-    LeftScreen
+    "right-screen": RightScreen,
+    "left-screen": LeftScreen
   },
   data () {
     return {

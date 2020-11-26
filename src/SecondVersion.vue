@@ -1,25 +1,25 @@
 <template>
     <div class="second-version">
         <div class="add-person-button">
-            <Button @click="onClickAdd" buttonMessage="Adicionar" />
+            <default-button @click="onClickAdd" buttonMessage="Adicionar" />
         </div>
 
-        <AddPersonModal :visible="isAddPersonModalVisible" @close="closeAddPerson" @person-submitted="addPerson" buttonMessage="Adicionar" />
-        <PeopleList :peopleList="peopleList" />
+        <edit-person-modal :visible="isAddPersonModalVisible" @close="closeAddPerson" @person-submitted="addPerson" buttonMessage="Adicionar" />
+        <people-list :peopleList="peopleList" />
     </div>
 </template>
 
 <script>
 import PeopleList from './components/PeopleList'
-import Button from './components/Button'
-import AddPersonModal from './components/Modal'
+import DefaultButton from './components/DefaultButton'
+import EditPersonModal from './components/EditPersonModal'
 
 export default {
     name: 'SecondVersion',
     components: {
-        PeopleList,
-        Button,
-        AddPersonModal
+        "people-list": PeopleList,
+        "default-button": DefaultButton,
+        "edit-person-modal": EditPersonModal
     },
     data() {
         return {

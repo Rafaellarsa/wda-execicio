@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <PeopleList :peopleList="peopleList" />
+    <people-list :peopleList="peopleList" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import PeopleList from './PeopleList.vue'
 export default {
   name: 'RightScreen',
   components: {
-    PeopleList
+    "people-list": PeopleList
   },
   props: {
     peopleList: {
