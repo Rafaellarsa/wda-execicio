@@ -1,8 +1,8 @@
 <template>
-    <div ref="addPersonModal" class="add-person-modal">
+    <div ref="addPersonModal" :style="{ display: addPersonModalVisibility }" class="add-person-modal">
         <div class="add-person-modal-content">
             <span class="close-modal" @click="$emit('close')">&times;</span>
-            <AddPersonScreen @person-submitted="person = arguments[0], $emit('person-submitted', person)" />
+            <AddPersonScreen buttonMessage="Adicionar" @person-submitted="person = arguments[0], $emit('person-submitted', person)" />
         </div>
     </div>
 </template>
@@ -21,28 +21,22 @@ export default {
         }
     },
     props: {
-        visible: {
-            default: false
-        }
+        visible: Boolean
     },
-    watch: {
-        visible(newVisible) {
-            if (newVisible) {
-                this.addPersonModal.style.display = "block";
+    computed: {
+        addPersonModalVisibility: function() {
+            if (this.visible) {
+                 return "block";
             } else {
-                this.addPersonModal.style.display = "none";
+                return "none";
             }
         }
-    },
-    mounted() {
-        this.addPersonModal = this.$refs.addPersonModal;
-    },
+    }
 }
 </script>
 
 <style>
 .add-person-modal {
-  display: none;
   position: fixed;
   z-index: 1;
   left: 0;

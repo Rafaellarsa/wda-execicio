@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import FirstVersion from './FirstVersion.vue'
-import SecondVersion from './SecondVersion.vue'
+import FirstVersion from './FirstVersion.vue';
+import SecondVersion from './SecondVersion.vue';
 
 export default {
     name: 'App',

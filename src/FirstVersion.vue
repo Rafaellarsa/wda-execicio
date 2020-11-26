@@ -1,7 +1,7 @@
 <template>
   <div class="first-version">
     <div class="column">
-      <AddPersonScreen @person-submitted="addPerson" />
+      <AddPersonScreen buttonMessage="Adicionar" @person-submitted="addPerson" />
     </div>
     <div class="column">
       <RightScreen :peopleList="peopleList" />

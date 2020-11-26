@@ -2,7 +2,7 @@
     <div class="form">
             <input type="text" placeholder="Nome da pessoa" v-model="profileName">
             <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL">
-            <Button @click="onClick" buttonMessage="Adicionar" />
+            <Button @click="onClick" :buttonMessage="buttonMessage" />
     </div>
 </template>
 
@@ -13,6 +13,9 @@ export default {
     name: 'AddPersonScreen',
     components: {
         Button
+    },
+    props: {
+        buttonMessage: String
     },
     data() {
         return {
