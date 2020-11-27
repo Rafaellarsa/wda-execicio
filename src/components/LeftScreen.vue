@@ -2,17 +2,20 @@
     <div class="form">
             <input type="text" placeholder="Nome da pessoa" v-model="profileName">
             <input type="url" placeholder="URL da foto de perfil" v-model="profilePictureURL">
-            <Button list="form" @click="onClick" />
+            <default-button @click="onClickAdd" :buttonMessage="buttonMessage" />
     </div>
 </template>
 
 <script>
-import Button from './Button.vue'
+import DefaultButton from './DefaultButton.vue'
 
 export default {
     name: 'LeftScreen',
     components: {
-        Button
+        "default-button": DefaultButton
+    },
+    props: {
+        buttonMessage: String
     },
     data() {
         return {
@@ -21,7 +24,7 @@ export default {
         }
     },
     methods: {
-        onClick() {
+        onClickAdd() {
             let person = {
                 profileName: this.profileName,
                 profilePictureURL: this.profilePictureURL
@@ -35,12 +38,10 @@ export default {
 </script>
 
 <style scoped>
-
 input {
     width: 100%;
     height: 2rem;
     margin-bottom: 1vw;
-
     border-color: #f67e7d;
     border-style: solid;
     font-family: 'Roboto';
