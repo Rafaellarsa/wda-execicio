@@ -12,6 +12,7 @@
 <script>
 import RightScreen from './components/RightScreen.vue'
 import LeftScreen from './components/LeftScreen.vue'
+import PeopleListHandler from './utils/PeopleListHandler'
 
 export default {
   name: 'FirstVersion',
@@ -21,12 +22,14 @@ export default {
   },
   computed: {
     peopleList() {
-      return this.$store.state.peopleList
+      return PeopleListHandler.getList(this)
     }
   },
   methods: {
     addPerson(newPerson) {
-      this.$store.commit('addPerson', newPerson)
+      const copyList = [...this.peopleList]
+      copyList.push(newPerson)
+      PeopleListHandler.setList(this, copyList)
     }
   }
 }

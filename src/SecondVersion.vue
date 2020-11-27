@@ -13,6 +13,7 @@
 import PeopleList from './components/PeopleList'
 import DefaultButton from './components/DefaultButton'
 import EditPersonModal from './components/EditPersonModal'
+import PeopleListHandler from './utils/PeopleListHandler'
 
 export default {
     name: 'SecondVersion',
@@ -28,7 +29,7 @@ export default {
     },
     computed: {
         peopleList() {
-            return this.$store.state.peopleList
+            return PeopleListHandler.getList(this)
         }
     },
     methods: {
@@ -39,7 +40,9 @@ export default {
             this.isAddPersonModalVisible = false;
         },
         addPerson(newPerson) {
-            this.$store.commit('addPerson', newPerson);
+            const copyList = [...this.peopleList]
+            copyList.push(newPerson)
+            PeopleListHandler.setList(this, copyList)
             this.isAddPersonModalVisible = false;
         }
     }
