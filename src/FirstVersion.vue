@@ -4,7 +4,7 @@
       <left-screen buttonMessage="Adicionar" @person-submitted="addPerson" />
     </div>
     <div class="column">
-      <right-screen :peopleList="peopleList" />
+      <right-screen v-model="peopleList" />
     </div>
   </div>
 </template>

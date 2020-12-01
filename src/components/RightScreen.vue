@@ -1,6 +1,6 @@
 <template>
   <div class="right">
-    <people-list :peopleList="peopleList" />
+    <people-list v-model="peopleList" />
   </div>
 </template>
 
@@ -11,6 +11,10 @@ export default {
   name: 'RightScreen',
   components: {
     "people-list": PeopleList
+  },
+  model: {
+    prop: 'peopleList',
+    emits: ['update:peopleList']
   },
   props: {
     peopleList: {

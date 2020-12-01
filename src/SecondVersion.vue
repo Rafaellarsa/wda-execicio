@@ -5,7 +5,7 @@
         </div>
 
         <edit-person-modal :visible="isAddPersonModalVisible" @close="closeAddPerson" @person-submitted="addPerson" buttonMessage="Adicionar" />
-        <people-list :peopleList="peopleList" />
+        <people-list v-model="peopleList" />
     </div>
 </template>
 
@@ -14,6 +14,7 @@ import PeopleList from './components/PeopleList'
 import DefaultButton from './components/DefaultButton'
 import EditPersonModal from './components/EditPersonModal'
 import PeopleListHandler from './utils/PeopleListHandler'
+import { mixinUhul } from './utils/mixin'
 
 export default {
     name: 'SecondVersion',
@@ -22,6 +23,7 @@ export default {
         "default-button": DefaultButton,
         "edit-person-modal": EditPersonModal
     },
+    mixins: [mixinUhul],
     data() {
         return {
         isAddPersonModalVisible: false

@@ -30,6 +30,10 @@ export default {
     components: {
         "edit-person-modal": EditPersonModal
     },
+    model: {
+        prop: 'peopleList',
+        emits: ['update:peopleList'],
+    },
     props: {
         peopleList: {
             type: Array,
