@@ -4,7 +4,7 @@
       <left-screen buttonMessage="Adicionar" @person-submitted="addPerson" />
     </div>
     <div class="column">
-      <right-screen :peopleList="peopleList" />
+      <right-screen v-model="peopleList" />
     </div>
   </div>
 </template>
@@ -12,6 +12,7 @@
 <script>
 import RightScreen from './components/RightScreen.vue'
 import LeftScreen from './components/LeftScreen.vue'
+import PeopleListHandler from './utils/PeopleListHandler'
 
 export default {
   name: 'FirstVersion',
@@ -19,15 +20,16 @@ export default {
     "right-screen": RightScreen,
     "left-screen": LeftScreen
   },
-  data () {
-    return {
-      peopleList: [{profileName: "Joice", profilePictureURL: "https://avatars2.githubusercontent.com/u/23100392?s=460&u=39ef99a6a5bee8145036e5142cb927e8faf60c1c&v=4"},
-      {profileName: "Samir", profilePictureURL: "https://avatars2.githubusercontent.com/u/3485190?s=460&u=01b4f7808a7dbfccf0748d311067cb19e8bfa11b&v=4"}]
+  computed: {
+    peopleList() {
+      return PeopleListHandler.getList(this)
     }
   },
   methods: {
-    addPerson(listItem) {
-      this.peopleList.push(listItem);
+    addPerson(newPerson) {
+      const copyList = [...this.peopleList]
+      copyList.push(newPerson)
+      PeopleListHandler.setList(this, copyList)
     }
   }
 }

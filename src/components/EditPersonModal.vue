@@ -29,10 +29,10 @@ export default {
         visible: Boolean,
         buttonMessage: String,
         value: {
-            default: {
+            default: () => ({
                 profileName: "",
                 profilePictureURL: ""
-            }
+            })
         }
     },
     watch: {
